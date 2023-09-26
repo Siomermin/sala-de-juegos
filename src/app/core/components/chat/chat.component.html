@@ -1,0 +1,43 @@
+<div
+  *ngIf="loggedUser && !showChat"
+  class="chatIcon-container"
+  (click)="showChat = true"
+>
+  <div class="nes-balloon text-center from-right">...</div>
+</div>
+
+<div class="card text-center card-container" *ngIf="loggedUser && showChat">
+  <div class="card-header">
+    Chat
+    <div class="closeChat" (click)="showChat = false">X</div>
+  </div>
+  <div class="card-body">
+    <div id="message-container" class="message-container mh-100">
+      <p
+        *ngFor="let message of messageList"
+        class="msj p-2 nes-balloon"
+        [ngClass]="
+          loggedUser.uid == message.sender ? 'sent -right' : 'received -left'
+        "
+      >
+        {{ message.text }}
+        <span class="user-email" style="white-space: nowrap">
+          {{ loggedUser.email }}
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <form class="input-group" (ngSubmit)="sendMessage()">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="..."
+      [(ngModel)]="newMessage"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <div class="input-group-append" (click)="sendMessage()">
+      <span class="input-group-text btn-message" id="basic-addon2"> > </span>
+    </div>
+  </form>
+</div>

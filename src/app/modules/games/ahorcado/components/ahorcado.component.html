@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="nes-container is-dark is-centered main-container">
+  <app-home-btn></app-home-btn>
+  <h1 class="text-center mt-2">Ahorcado</h1>
+  <div>
+    Intentos: <span class="nes-text is-error" id="mistakes">0</span> de 6
+  </div>
+  <div class="text-center letter-container">
+    <p>Adivina la palabra:</p>
+    <p id="wordSpotlight"></p>
+    <div id="keyboard">
+      <button
+        *ngFor="let letter of keyboard"
+        class="nes-btn is-primary p-2 m-2"
+        id="{{ letter }}"
+        (click)="handleGuess(letter)"
+      >
+        {{ letter }}
+      </button>
+    </div>
+  </div>
+  <button class="nes-btn is-warning btn-reset" (click)="reset()">
+    Reiniciar
+  </button>
+</div>
+<app-chat></app-chat>

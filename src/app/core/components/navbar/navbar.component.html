@@ -1,0 +1,21 @@
+<!-- Image and text -->
+<nav class="navbar">
+
+  <div class="d-flex align-items-center">
+    <img src="https://64.media.tumblr.com/bba71dd8949818b7c6370722c6112d24/8c0649b4f3a596ec-83/s540x810/4ceecddbc6ec5496deef9fae2dcd09446ca2d80d.png" width="50" height="30" class="d-inline-block align-top" alt="">
+
+    <a id="navbar-title" class="navbar-brand" (click)="goHome()">
+      Sala de Juegos
+    </a>
+  </div>
+
+  <div>
+    <a id="userProfile" class="navbar-brand" *ngIf="loggedUser|async as user">
+      <img *ngIf="user.photoURL" [src]="user.photoURL" width="30" height="30" class="d-inline-block align-top" alt="">
+      {{user.email}}
+    </a>
+
+    <button *ngIf="loggedUser|async as user" id="btnLogOut" class="btn btn-outline-danger me-3" (click)="logout()">Cerrar sesión</button>
+  </div>
+
+</nav>

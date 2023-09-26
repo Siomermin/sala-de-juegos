@@ -1,0 +1,26 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 93vh; /* Adjust the height as needed */
+}
+
+
+.juego1 {
+  background-color: #3498db;
+}
+
+.juego2 {
+  background-color: #34db58;
+}
+
+.juego3 {
+  background-color: #e2241e;
+}
+
+.juego4 {
+  background-color: #d4229f;
+}
+
+
+

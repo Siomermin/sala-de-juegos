@@ -1,0 +1,14 @@
+.nes-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-card img {
+    border-radius: 5%;
+}
+
+@media (min-width: 1200px) {
+    .nes-container {
+        justify-content: flex-start;
+    }
+}
