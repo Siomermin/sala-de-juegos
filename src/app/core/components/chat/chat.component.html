@@ -22,7 +22,7 @@
       >
         {{ message.text }}
         <span class="user-email" style="white-space: nowrap">
-          {{ loggedUser.email }}
+          {{ message.email }}
         </span>
       </p>
     </div>
@@ -33,7 +33,7 @@
       type="text"
       class="form-control"
       placeholder="..."
-      [(ngModel)]="newMessage"
+      [(ngModel)]="message"
       [ngModelOptions]="{ standalone: true }"
     />
     <div class="input-group-append" (click)="sendMessage()">
