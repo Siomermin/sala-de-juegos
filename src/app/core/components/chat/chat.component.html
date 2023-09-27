@@ -13,18 +13,23 @@
   </div>
   <div class="card-body">
     <div id="message-container" class="message-container mh-100">
-      <p
-        *ngFor="let message of messageList"
-        class="msj p-2 nes-balloon"
-        [ngClass]="
-          loggedUser.uid == message.sender ? 'sent -right' : 'received -left'
-        "
-      >
-        {{ message.text }}
-        <span class="user-email" style="white-space: nowrap">
-          {{ message.email }}
-        </span>
-      </p>
+      <div *ngFor="let message of messageList" class="message-wrapper">
+        <div
+          class="msj p-3 nes-balloon message"
+          [ngClass]="
+            loggedUser.uid == message.sender ? 'sent -right' : 'received -left'
+          "
+        >
+          {{ message.text }}
+
+          <div class="message-details">
+            <span class="message-data" style="white-space: nowrap">
+              <span class="email">{{ message.email }}</span>
+              <span class="date">{{ message.date }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

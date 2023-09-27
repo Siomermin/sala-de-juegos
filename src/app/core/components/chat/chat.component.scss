@@ -1,5 +1,5 @@
 .card-container {
-  width: 300px;
+  width: 500px;
   height: 500px;
   position: fixed;
   right: 2rem;
@@ -23,7 +23,7 @@
 .sent {
   display: block;
   float: right;
-  background-color: rgb(102, 174, 187);
+  background-color: #0D4244;
   color: white;
   min-width: 50.01%;
   border-radius: 10px;
@@ -33,7 +33,7 @@
 .received {
   display: block;
   float: left;
-  background-color: rgb(95, 85, 85);
+  background-color: #311A1A;
   color: white;
   min-width: 50.01%;
   border-radius: 10px;
@@ -44,11 +44,38 @@
   overflow: scroll;
   padding: 0.3rem;
   height: 400px;
+
 }
 
-.user-email {
-  color: #212529;
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.msj.sent {
+  align-self: flex-end; /* Right-align sent messages */
+}
+
+.message-details {
+  display: flex;
+  justify-content: flex-end;
+  color: rgba(255, 255, 255, 0.774);
   font-size: 11px;
+  margin-top: 4px; /* Add some space between message text and details */
+}
+
+.email {
+  margin-right: 10px; /* Add space between email and date */
+  color: rgb(182, 180, 180);
+
+}
+
+.date {
+
+  color: rgb(182, 180, 180);
+
+
 }
 
 .chatIcon-container {
