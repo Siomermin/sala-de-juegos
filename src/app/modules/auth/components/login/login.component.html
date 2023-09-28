@@ -1,44 +1,46 @@
-<div class="container">
-  <div class="nes-container is-centered">
-    <h3 class="mb-4">Login</h3>
+<div class="nes-container is-dark">
+  <h3 class="mb-4">Login</h3>
 
-    <!-- Email input -->
-    <div class="nes-field mb-4">
-      <input
-        type="email"
-        class="nes-input"
-        [(ngModel)]="user.email"
-        placeholder="Correo electrónico"
-      />
-    </div>
-
-    <!-- Password input -->
-    <div class="nes-field mb-4">
-      <input
-        type="password"
-        class="nes-input"
-        [(ngModel)]="user.password"
-        placeholder="Contraseña"
-      />
-    </div>
-
-    <div class="col d-flex justify-content-center">
-      <!-- Submit button -->
-
-      <button type="button" class="nes-btn is-primary mb-4" (click)="login()">
-        Iniciar sesión
-      </button>
-    </div>
-
-    <!-- Register buttons -->
-    <div class="text-center">
-      <a class="nes-btn is-success btn-block mb-4" routerLink="/register">
-        Crear cuenta nueva
-      </a>
-    </div>
-
-    <button type="button" class="nes-btn is-warning" (click)="autoLogin()">
-      Acceso rápido
-    </button>
+  <!-- Email input -->
+  <div
+    style="background-color: #212529; padding: 1rem"
+    class="nes-field is-inline"
+  >
+    <input
+      type="email"
+      id="dark_field"
+      class="nes-input is-dark"
+      [(ngModel)]="user.email"
+      placeholder="Correo electrónico"
+    />
   </div>
+
+  <!-- Password input -->
+  <div
+  style="background-color: #212529; padding: 1rem"
+  class="nes-field is-inline"
+>
+  <input
+    type="password"
+    id="dark_field"
+    class="nes-input is-dark"
+    [(ngModel)]="user.password"
+    placeholder="Contraseña"
+  />
+</div>
+
+  <a class="nes-btn is-primary mb-4" (click)="login()">
+    Iniciar sesión
+  </a>
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <a id="btn" class="nes-btn is-success btn-block mb-4" routerLink="/register">
+      Crear cuenta nueva
+    </a>
+  </div>
+
+  <a id="btn" class="nes-btn is-warning" (click)="autoLogin()">
+    Acceso rápido
+  </a>
 </div>

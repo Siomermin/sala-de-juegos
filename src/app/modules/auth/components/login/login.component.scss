@@ -1,8 +1,11 @@
-.container {
+.nes-container {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 100vw;
-  height: 100vh;
+   height: 99.22vh;
+}
+
+#btn {
+   color: #212529;
 }

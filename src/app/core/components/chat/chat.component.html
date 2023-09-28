@@ -3,13 +3,13 @@
   class="chatIcon-container"
   (click)="showChat = true"
 >
-  <div class="nes-balloon text-center from-right">...</div>
+  <div class="nes-pointer nes-balloon text-center from-right">...</div>
 </div>
 
 <div class="card text-center card-container" *ngIf="loggedUser && showChat">
   <div class="card-header">
     Chat
-    <div class="closeChat" (click)="showChat = false">X</div>
+    <a class="closeChat nes-pointer" (click)="showChat = false">X</a>
   </div>
   <div class="card-body">
     <div id="message-container" class="message-container mh-100">

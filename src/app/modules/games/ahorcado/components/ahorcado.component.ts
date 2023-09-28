@@ -23,27 +23,13 @@ export class AhorcadoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  socialMedia = [
-    "whatsapp",
-    "instagram",
-    "twitter",
-    "snapchat",
-    "tiktok",
-    "youtube",
-    "wechat",
-    "facebook",
-    "telegram",
-    "palmchat",
-    "gmail",
-    "linkedin",
-    "reddit",
-    "hangouts",
-    "discord",
-    "twitch",
+  
+  pokemones = [
+    "goku",
   ]
 
   randomWord() {
-    this.answer =this.socialMedia[Math.floor(Math.random() * this.socialMedia.length)];
+    this.answer =this.pokemones[Math.floor(Math.random() * this.pokemones.length)];
     console.log(this.answer);
   }
 

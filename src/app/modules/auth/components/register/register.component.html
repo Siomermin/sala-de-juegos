@@ -1,47 +1,52 @@
-<div class="container">
-  <div class="nes-container is-centered">
+<div class="nes-container is-dark">
     <h3 class="mb-4">Registro</h3>
 
-    <!-- Email input -->
-    <div class="nes-field mb-4">
-      <input
-        type="email"
-        class="nes-input"
-        [(ngModel)]="user.email"
-        placeholder="Correo electrónico"
-      />
-    </div>
+  <!-- Email input -->
+  <div
+    style="background-color: #212529; padding: 1rem"
+    class="nes-field is-inline"
+  >
+    <input
+      type="email"
+      id="dark_field"
+      class="nes-input is-dark"
+      [(ngModel)]="user.email"
+      placeholder="Correo electrónico"
+    />
+  </div>
 
-    <!-- Password input -->
-    <div class="fnes-field mb-4">
-      <input
-        type="password"
-        class="nes-input"
-        [(ngModel)]="user.password"
-        placeholder="Contraseña"
-      />
-    </div>
+  <!-- Password input -->
+  <div
+  style="background-color: #212529; padding: 1rem"
+  class="nes-field is-inline"
+>
+  <input
+    type="password"
+    id="dark_field"
+    class="nes-input is-dark"
+    [(ngModel)]="user.password"
+    placeholder="Contraseña"
+  />
+</div>
 
     <div class="nes-field mb-4">
       <div class="nes-field col d-flex justify-content-center">
         <!-- Submit button -->
 
-        <button
-          type="button"
+        <a
           class="nes-btn is-primary btn-block mb-4"
           (click)="register()"
         >
           Crear cuenta
-        </button>
+        </a>
       </div>
     </div>
 
     <!-- Register buttons -->
     <div class="nes-field text-center">
       <p>Ya tienes cuenta?</p>
-      <a class="nes-btn is-success btn-block mb-4" routerLink="/login">
+      <a id="btn" class="nes-btn is-success btn-block mb-4" routerLink="/login">
         Iniciar sesión
       </a>
     </div>
-  </div>
 </div>

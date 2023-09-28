@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'
 
 import { CoreModule } from 'src/app/core/core.module';
 
@@ -15,6 +16,7 @@ import { AhorcadoComponent } from './components/ahorcado.component';
     CommonModule,
     AhorcadoRoutingModule,
     CoreModule,
+    HttpClientModule
   ]
 })
 export class AhorcadoModule { }

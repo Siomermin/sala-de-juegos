@@ -3,14 +3,35 @@
   top: 0; /* Stick to the top of the viewport */
   z-index: 100; /* Add a higher z-index to make sure it's on top of other elements */
   background-color: white; /* Set the desired background color */
+  border-bottom: 4px solid #D3D3D3;
+  background-color: white;
 }
 
-#navbar-title {
-  font-size: 14px;
+.nav-brand {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-brand i {
+  margin-right: 20px; /* Adjust the margin as needed */
+
+}
+
+.nav-title {
+  display: block;
+  font-size: 1.3em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 #btnLogOut {
+  padding: 4px;
   font-size: 8px;
+  color: #fff;
 }
 
 #userProfile {
@@ -21,8 +42,8 @@
   font-size: 11px;
 }
 
-@media (max-width: 650px) {
-  #navbar-title {
+@media (max-width: 770px) {
+  #nav-title {
    display: none;
   }
 }

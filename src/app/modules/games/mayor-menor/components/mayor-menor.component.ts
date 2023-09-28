@@ -14,7 +14,14 @@ export class MayorMenorComponent {
   message: string = '';
 
   constructor(private authService: AuthService) {
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     this.startGame();
+
+    
   }
 
   startGame() {
@@ -32,10 +39,10 @@ export class MayorMenorComponent {
     const isNextHigher = this.nextNumber > this.currentNumber;
 
     if ((isNextHigher && guess === 'higher') || (!isNextHigher && guess === 'lower')) {
-      this.message = 'Correct! You guessed right.';
+      this.message = 'Buena!';
       this.progressValue += 10;
     } else {
-      this.message = 'Sorry, that was incorrect.';
+      this.message = 'Mal ahi, erraste!';
       this.progressValue -= 10;
       if (this.progressValue < 0) {
         this.progressValue = 0; // Ensure progressValue doesn't go below 0
