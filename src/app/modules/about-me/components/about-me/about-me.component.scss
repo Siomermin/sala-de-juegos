@@ -1,0 +1,20 @@
+.nes-container {
+  display: flex;
+  justify-content: space-around;
+  height: 30.4vh;
+
+}
+
+.profile-card img {
+  border-radius: 5%;
+}
+
+#game-container {
+  height: 50.4vh;
+}
+
+@media (min-width: 1200px) {
+  .nes-container {
+      justify-content: flex-start;
+  }
+}

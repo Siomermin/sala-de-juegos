@@ -27,4 +27,8 @@ export class NavbarComponent {
   goHome() {
     this.router.navigateByUrl('/home');
   }
+
+  goAboutMe() {
+    this.router.navigateByUrl('/about-me');
+  }
 }

@@ -5,12 +5,22 @@
   background-color: white; /* Set the desired background color */
   border-bottom: 4px solid #D3D3D3;
   background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .nav-brand {
-  margin-top: 5px;
   display: flex;
   flex-direction: row;
+}
+
+.snes-jp-logo {
+  margin-top: 1px;
+}
+
+.nes-ash {
+  height: 20px;
 }
 
 .nav-brand i {
@@ -28,6 +38,11 @@
   font-weight: bold;
 }
 
+.about-me {
+  font-size: 17px;
+margin-right: 70px;
+}
+
 #btnLogOut {
   padding: 4px;
   font-size: 8px;
@@ -42,8 +57,12 @@
   font-size: 11px;
 }
 
-@media (max-width: 770px) {
-  #nav-title {
+@media (max-width: 1100px) {
+  .nav-home {
    display: none;
+  }
+
+  .about-me {
+    margin-left: 1rem!important;
   }
 }
