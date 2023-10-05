@@ -6,12 +6,19 @@ body {
 }
 
 
-.juego1 {
-  background-color: #3498db;
+.game-container {
+  background-size: cover; /* Optional: Set the background size */
+  background-repeat: no-repeat; /* Optional: Prevent background image from repeating */
+  background-position: center; /* Optional: Center the background image */
 }
 
-.juego2 {
+#ahorcado {
   background-color: #34db58;
+
+}
+
+#mayor-menor {
+  background-color: #3498db;
 }
 
 .juego3 {

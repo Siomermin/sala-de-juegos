@@ -2,6 +2,18 @@
    height: 94.28vh;
 }
 
+#wordSpotlight {
+  font-size: 30px;
+}
+
+
+.icon-list {
+  margin-top: 20px;
+}
+.icon-list i {
+margin: 20px;
+}
+
 /* Keep it simple - improvement would be to not display characters */
 .letter {
   display: inline-block;

@@ -3,24 +3,21 @@
   <app-home-btn></app-home-btn>
   <div class="d-flex align-items-center justify-content-center">
     <h1 class="text-center mt-2">Ahorcado </h1>
-    <i class="nes-pokeball"></i> 
+    <i class="nes-pokeball"></i>
   </div>
 
-  <div class="mt-3">
+  <div class="mt-4">
+    <h4>Adivina el <span class="nes-text is-error">Pokémon</span>:</h4>
+  </div>
+
+  <div class="mt-5">
     Intentos: <span class="nes-text is-error" id="mistakes">0</span> de 6
   </div>
-  <div class="icon-list mt-5">
-    <i class="nes-bulbasaur"></i>
-    <i class="nes-charmander"></i>
-    <i class="nes-squirtle"></i>
-    <i class="nes-kirby"></i>
-  </div>
+
   <div class="text-center letter-container">
-    <div>
-      <h4>Adivina el Pokémon:</h4>
-    </div>
     <p id="wordSpotlight"></p>
-    <div id="keyboard">
+
+    <div class="mt-5" id="keyboard">
       <button
         *ngFor="let letter of keyboard"
         class="nes-btn is-primary p-2 m-2"
@@ -34,5 +31,12 @@
   <button class="nes-btn is-warning btn-reset mt-5" (click)="reset()">
     Reiniciar
   </button>
+  <div class="icon-list">
+    <i class="nes-bulbasaur"></i>
+    <i class="nes-charmander"></i>
+    <i class="nes-squirtle"></i>
+    <i class="nes-kirby"></i>
+  </div>
 </div>
+
 <app-chat></app-chat>
