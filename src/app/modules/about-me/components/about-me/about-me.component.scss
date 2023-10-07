@@ -1,7 +1,11 @@
+
+.main-container {
+  height: 70vh;
+}
+
 .nes-container {
   display: flex;
   justify-content: space-around;
-  height: 30.4vh;
 
 }
 
@@ -9,8 +13,8 @@
   border-radius: 5%;
 }
 
-#game-container {
-  height: 50.4vh;
+#game-explanation {
+  height: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -18,3 +22,5 @@
       justify-content: flex-start;
   }
 }
+
+

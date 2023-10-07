@@ -2,7 +2,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  height: 91.7vh; /* Adjust the height as needed */
+  min-height: 100vh; /* Use min-height to ensure the body covers the entire viewport height */
 }
 
 

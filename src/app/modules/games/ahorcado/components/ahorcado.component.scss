@@ -1,18 +1,17 @@
 .main-container {
-   height: 94.28vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
 }
+
 
 #wordSpotlight {
   font-size: 30px;
 }
 
-
-.icon-list {
-  margin-top: 20px;
-}
-.icon-list i {
-margin: 20px;
-}
 
 /* Keep it simple - improvement would be to not display characters */
 .letter {
@@ -31,26 +30,7 @@ margin: 20px;
   opacity: 0;
   transition: opacity 1s ease;
 }
-.correct {
-  background-color: green;
-  transition: all 1s ease;
-}
-.error {
-  color: red;
-  opacity: 1;
-}
-.warning {
-  color: orange;
-  opacity: 1;
-}
-.win {
-  color: green;
-  opacity: 1;
-}
 
-.letter-container {
-  margin-top: 200px;
-}
 
 .btn-reset {
   bottom: 0;
