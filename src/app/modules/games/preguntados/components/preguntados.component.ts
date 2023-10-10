@@ -87,11 +87,16 @@ export class PreguntadosComponent {
   }
 
   endGame(): void {
-    // Implement logic to end the game, such as displaying a message
-    // or redirecting to a game-over screen.
-    Swal.fire('Felicitaciones! Tu puntaje fue:' + this.userScore);
-
-    // alert('Game over! Your final score: ' + this.userScore);
-    // You can implement more sophisticated game-ending logic here.
+    Swal.fire({
+      title: 'Felicitaciones! Te puntaje fue:' + this.userScore,
+      icon: 'success',
+      confirmButtonColor: '#3085d6',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.startNewQuiz();
+        this.userScore = 0;
+        this.questionsAnswered = 0;
+      }
+    })
   }
 }

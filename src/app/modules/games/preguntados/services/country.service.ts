@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CountryService {
-  private apiUrl = 'https://restcountries.com/v3.1/all?fields=flags,name';
+  private apiUrl = 'https://restcountries.com/v3.1/all?fields=flags,name,translations';
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,8 @@ getCountries(): Observable<any[]> {
     map((data: any[]) => {
       return data.map((country) => ({
         flag: country.flags.png,
-        name: country.name.common , // Use Spanish name if available
+        // name: country.name.common , // Use Spanish name if available
+        name: country.translations.spa.official
       }));
     })
   );

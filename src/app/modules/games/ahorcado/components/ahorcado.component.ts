@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import Swal from 'sweetalert2';
 import { PokemonService } from '../services/pokemon.service';
 
@@ -19,7 +18,9 @@ export class AhorcadoComponent implements OnInit {
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'
   ];
   pokemones: string[] = [];
+  imageUrl: string = '';
   wordStatus: string = '';
+
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -45,6 +46,15 @@ export class AhorcadoComponent implements OnInit {
   randomWord() {
     this.answer = this.pokemones[Math.floor(Math.random() * this.pokemones.length)];
     console.log(this.answer);
+    this.pokemonService.getPokemonDetails(this.answer).subscribe(
+      (data: any) => {
+        this.imageUrl = data.sprites.front_default;
+      },
+      (error) => {
+       Swal.fire(error);
+      }
+    );
+
   }
 
   handleGuess(chosenLetter: string) {
@@ -62,13 +72,35 @@ export class AhorcadoComponent implements OnInit {
 
   checkIfGameWon() {
     if (this.wordStatus == this.answer) {
-      Swal.fire('GANASTE!!!', '', 'success');
+      Swal.fire({
+        title: 'Ganaste! :)',
+        imageUrl: this.imageUrl,  // Display the Pokémon image
+        imageWidth: 150,  // Adjust image width as needed
+        imageHeight: 150, // Adjust image height as needed
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.reset();
+        }
+      })
     }
   }
 
   checkIfGameLost() {
     if (this.mistakes == this.maxMistakes) {
-      Swal.fire('Perdiste :(', '', 'error');
+      Swal.fire({
+        title: 'Perdiste! La respuesta era: ' + this.answer + ' :(',
+        imageUrl: this.imageUrl,  // Display the Pokémon image
+        imageWidth: 150,  // Adjust image width as needed
+        imageHeight: 150, // Adjust image height as needed
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.reset();
+        }
+      })
     }
   }
 

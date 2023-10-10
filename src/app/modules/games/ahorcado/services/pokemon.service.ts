@@ -12,7 +12,12 @@ export class PokemonService {
   constructor( private http: HttpClient ) { }
 
   getAllPokemonNames(): Observable<any> {
-    const url = `${this.url}/pokemon?limit=1000`; // You can adjust the limit as needed
+    const url = `${this.url}/pokemon?limit=151`; // You can adjust the limit as needed
+    return this.http.get(url);
+  }
+
+  getPokemonDetails(pokemonName: string): Observable<any> {
+    const url = `${this.url}/pokemon/${pokemonName}`;
     return this.http.get(url);
   }
 

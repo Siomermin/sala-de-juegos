@@ -35,7 +35,6 @@ export class ChatComponent {
     private firestore: FirestoreService
   ) {}
 
-  //TODO: Voy a tener quer cambiar la logica del uid por la de email.
   ngOnInit(): void {
     this.authService.getLoggedUser().subscribe((user) => {
       this.loggedUser = user;
@@ -115,7 +114,7 @@ export class ChatComponent {
       this.messageList = updatedMessageList; // Update the messageList with the sorted and formatted messages
     });
   }
-  
+
   // Scrollea hasta el ultimo msj asi se muestra.
   scrollToTheLastElement() {
     let elements = document.getElementsByClassName('msj');

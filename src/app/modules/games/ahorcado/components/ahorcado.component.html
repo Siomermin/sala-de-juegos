@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 
 <div class="nes-container is-dark is-centered main-container">
+  <app-home-btn></app-home-btn>
+
   <div>
     <div class="d-flex align-items-center justify-content-center">
       <h1 class="text-center">Ahorcado</h1>
@@ -15,7 +17,8 @@
   <div>
     <p id="wordSpotlight">{{ wordStatus }}</p>
 
-    Intentos: <span class="nes-text is-error">{{ mistakes }} de {{ maxMistakes }}</span>
+    Intentos:
+    <span class="nes-text is-error">{{ mistakes }} de {{ maxMistakes }}</span>
   </div>
 
   <div class="text-center letter-container">

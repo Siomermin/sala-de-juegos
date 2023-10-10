@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from './../../../modules/auth/services/auth.service';
 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -16,12 +17,24 @@ export class NavbarComponent {
   constructor( private authService: AuthService, private router: Router ) {}
 
   logout(): void {
-    this.authService.logout().then( res => {
-      this.router.navigateByUrl('/login');
-    }, err => {
-      alert(err);
-    }
-    );
+    Swal.fire({
+      title: '¿Estás seguro de cerrar sesión?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, nos vemos!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.authService.logout().then( res => {
+          this.router.navigateByUrl('/login');
+        }, err => {
+          Swal.fire(err);
+        }
+        );
+      }
+    })
   }
 
   goHome() {

@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
 
 <div class="nes-container is-dark text-center main-container flag-quiz">
+  <app-home-btn></app-home-btn>
   <div>
-    <h1>Preguntados</h1>
-    <h3>Adivina a que pais pertenece la bandera:</h3>
+    <h1 class="nes-text is-error">Preguntados</h1>
+    <h3>¿A qué país pertenece la bandera?</h3>
   </div>
 
   <p>{{ questionsAnswered }} / 25</p>
@@ -12,11 +13,11 @@
 
   <div class="options">
     <div *ngFor="let option of options; let i = index">
-      <a class="nes-btn" (click)="checkAnswer(i)">{{ option }}</a>
+      <a class="nes-btn is-warning" (click)="checkAnswer(i)">{{ option }}</a>
     </div>
   </div>
 
-  <p>Aciertos: {{ userScore }}</p>
+  <p>Aciertos: <span class="nes-text is-success">{{ userScore }}</span></p>
 </div>
 
 <app-chat></app-chat>

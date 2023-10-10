@@ -1,14 +1,21 @@
 <app-navbar></app-navbar>
 <div class="nes-container is-dark is-centered main-container">
   <app-home-btn></app-home-btn>
-  <h1>Mayor o Menor</h1>
+  <!-- <h1>Mayor o Menor</h1>
   <p>Numero: {{ currentNumber }}</p>
-  <!-- <p>Mayor or Menor?</p> -->
   <button class="nes-btn is-warning" (click)="makeGuess('higher')">Mayor</button>
   <button class="nes-btn is-success" (click)="makeGuess('lower')">Menor</button>
   <p>{{ message }}</p>
   <progress class="nes-progress is-pattern"  [value]="progressValue" max="100"></progress>
-  <button class="nes-btn is-primary" (click)="startGame()">Reiniciar Juego</button>
+  <button class="nes-btn is-primary" (click)="startGame()">Reiniciar Juego</button> -->
+  <div class="diceRoller">
+    <div>
+        <div class="square" *ngFor="let diceValue of diceValues">
+            <span>{{ diceValue }}</span>
+        </div>
+    </div>
+    <button type="button" id="roll-button" (click)="diceRoll()">Roll Dice!</button>
+</div>
 </div>
 <app-chat></app-chat>
 

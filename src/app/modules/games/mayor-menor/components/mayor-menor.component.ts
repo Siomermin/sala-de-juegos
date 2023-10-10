@@ -9,19 +9,21 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
 export class MayorMenorComponent {
   progressValue: number = 0; // Set an initial value
   currentNumber: number = 0;
-  nextNumber: number= 0;
+  nextNumber: number = 0;
   playerGuess: string = ''; // 'higher' or 'lower'
   message: string = '';
+  public diceValues: Array<number> = [0, 0, 0, 0, 0, 0];
 
-  constructor(private authService: AuthService) {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.startGame();
+  }
 
-
+  diceRoll() {
+    for (let i = 0; i < this.diceValues.length; i++) {
+      this.diceValues[i] = Math.floor(Math.random() * 6) + 1;
+    }
   }
 
   startGame() {
@@ -38,7 +40,10 @@ export class MayorMenorComponent {
   makeGuess(guess: string) {
     const isNextHigher = this.nextNumber > this.currentNumber;
 
-    if ((isNextHigher && guess === 'higher') || (!isNextHigher && guess === 'lower')) {
+    if (
+      (isNextHigher && guess === 'higher') ||
+      (!isNextHigher && guess === 'lower')
+    ) {
       this.message = 'Buena!';
       this.progressValue += 10;
     } else {
@@ -53,5 +58,4 @@ export class MayorMenorComponent {
     this.currentNumber = this.nextNumber;
     this.nextNumber = this.generateRandomNumber();
   }
-
 }
