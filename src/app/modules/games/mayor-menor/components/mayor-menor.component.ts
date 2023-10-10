@@ -21,7 +21,7 @@ export class MayorMenorComponent {
     //Add 'implements OnInit' to the class.
     this.startGame();
 
-    
+
   }
 
   startGame() {

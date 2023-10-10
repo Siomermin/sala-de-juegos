@@ -1,9 +1,22 @@
 <app-navbar></app-navbar>
 
-<div class="main-container nes-container is-dark">
-<app-home-btn></app-home-btn>
+<div class="nes-container is-dark text-center main-container flag-quiz">
+  <div>
+    <h1>Preguntados</h1>
+    <h3>Adivina a que pais pertenece la bandera:</h3>
+  </div>
 
+  <p>{{ questionsAnswered }} / 25</p>
 
+  <img [src]="flagUrl" alt="Flag" />
+
+  <div class="options">
+    <div *ngFor="let option of options; let i = index">
+      <a class="nes-btn" (click)="checkAnswer(i)">{{ option }}</a>
+    </div>
+  </div>
+
+  <p>Aciertos: {{ userScore }}</p>
 </div>
 
 <app-chat></app-chat>

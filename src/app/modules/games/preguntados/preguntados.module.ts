@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PreguntadosRoutingModule } from './preguntados-routing.module';
 import { PreguntadosComponent } from './components/preguntados.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { CountryService } from './services/country.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +15,11 @@ import { CoreModule } from 'src/app/core/core.module';
   imports: [
     CommonModule,
     PreguntadosRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
+  ],
+  providers: [
+    CountryService
   ]
 })
 export class PreguntadosModule { }

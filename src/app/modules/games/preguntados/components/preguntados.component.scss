@@ -1,3 +1,28 @@
 .main-container {
   height: 93.40vh;
 }
+
+.flag-quiz {
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column; /* Stack options vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+
+}
+
+.nes-btn {
+  // white-space: no-wrap;
+
+  margin: 5px; /* Add margin for spacing between buttons */
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #000!important;
+}
