@@ -1,6 +1,5 @@
-
 .main-container {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .player {
@@ -22,20 +21,11 @@
   margin-bottom: 1rem;
 }
 
-// .score {
-//   font-size: 8rem;
-//   font-weight: 300;
-//   color: #c7365f;
-//   margin-bottom: auto;
-// }
-
-
 .current {
   background-color: #c7365f;
   opacity: 0.8;
-  border-radius: 9px;
   color: #fff;
-  width: 45%;
+  width: 85%;
   padding: 2rem;
   text-align: center;
   transition: all 0.75s;
@@ -53,9 +43,21 @@
 }
 
 .btn-container {
-  width: 90%;
+  padding: 0;
+  margin: 0;
+  width: 85%;
+  display: flex;
+  align-items: center; /* Vertically center the buttons */
+  opacity: 0.8;
+  text-align: center;
+  transition: all 0.75s;
+}
 
-
+.nes-btn {
+  margin-top: 20px;
+  width: 110%;
+  background-color: #fff;
+  color: #c7365f;
 }
 
 .dice {
@@ -67,9 +69,26 @@
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
 
+/* Media query for small screens */
+@media (max-width: 1066px) {
+  .name {
+    font-size: 2.2rem;
+  }
+}
 
-.nes-btn {
-  width: 50%;
-  background-color: #c7365f;
-  color: #fff;
+/* Media query for small screens */
+@media (max-width: 886px) {
+  .current-score,
+  .current-label {
+    font-size: 1.1rem;
+  }
+
+  .dice {
+    top: 19.8rem;
+  }
+
+  .current,
+  .btn-container {
+    width: 100%;
+  }
 }

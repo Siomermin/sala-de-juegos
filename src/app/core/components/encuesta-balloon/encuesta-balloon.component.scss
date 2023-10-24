@@ -1,0 +1,21 @@
+i {
+    position: fixed;
+    left: 1.4rem;
+    bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.nes-balloon {
+  position: fixed;
+  left: 7.4rem;
+  bottom: 1.9rem;
+  //display: none;
+}
+
+#balloonContent {
+  display: none; /* Initially hide the balloon */
+}
+
+#showBalloon:hover + #balloonContent {
+  display: block; /* Show the balloon when hovering over #showBalloon */
+}

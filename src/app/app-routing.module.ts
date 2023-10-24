@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'games/buscaminas',
     loadChildren: () => import('./modules/games/buscaminas/buscaminas.module').then((m) => m.BuscaminasModule),
   },
+  {
+    path: 'encuesta',
+    loadChildren: () => import('./modules/encuesta/encuesta.module').then((m) => m.EncuestaModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,172 @@
+<!-- - Incorporar una encuesta
+● Tiene que pedir los siguientes datos:
+○ Nombre y apellido.
+○ Edad, validar que sean mayores de 18 años y menores de 99 años.
+○ Número de teléfono, validar que sean solo números y no más de 10
+caracteres.
+● Mínimo 3 preguntas.
+○ Utilizar distintos controles, textbox, checkbox, radiobutton, etc.
+○ No se pueden repetir.
+● Tiene que contar con validaciones.
+● Todos los campos son requeridos.
+● Guardar las respuestas en Firebase identificando el usuario. -->
+<app-navbar></app-navbar>
+
+<div class="nes-container is-dark main-container">
+  <app-home-btn></app-home-btn>
+  <div class="text-center">
+    <h2>Encuesta</h2>
+    <div class="col-sm-11 col-md-11 col-lg-7 form-container mt-4">
+      <form
+        [formGroup]="encuestaForm"
+        class="mb-3 mt-4"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row g-3">
+          <div class="col-sm-12">
+            <div
+              style="background-color: #212529; padding: 0.5rem"
+              class="nes-field is-inline"
+            >
+              <label for="dark_field" style="color: #fff">Nombre</label>
+              <input
+                formControlName="nombre"
+                id="nombre"
+                type="text"
+                id="dark_field"
+                class="nes-input is-dark"
+              />
+            </div>
+            <small
+              class="text-danger"
+              *ngIf="nombre?.touched && nombre?.errors"
+            >
+              Ingrese un nombre válido
+            </small>
+          </div>
+
+          <div class="col-sm-12">
+            <div
+              style="background-color: #212529; padding: 0.5rem"
+              class="nes-field is-inline"
+            >
+              <label for="dark_field" style="color: #fff">Apellido</label>
+              <input
+                formControlName="apellido"
+                id="apellido"
+                type="text"
+                id="dark_field"
+                class="nes-input is-dark"
+              />
+            </div>
+            <small
+              class="text-danger"
+              *ngIf="apellido?.touched && apellido?.errors"
+            >
+              Ingrese un apellido válido
+            </small>
+          </div>
+
+          <div class="col-xs-8 col-md-5">
+            <div
+              style="background-color: #212529; padding: 0.5rem"
+              class="nes-field is-inline"
+            >
+              <label for="dark_field" style="color: #fff">Edad</label>
+              <input
+                formControlName="edad"
+                id="edad"
+                type="number"
+                id="dark_field"
+                class="nes-input is-dark"
+                placeholder="18-99"
+              />
+            </div>
+            <small class="text-danger" *ngIf="edad?.touched && edad?.errors">
+              Ingrese una edad válida
+            </small>
+          </div>
+
+          <div class="col-md-7">
+            <div
+              style="background-color: #212529; padding: 0.5rem"
+              class="nes-field is-inline"
+            >
+              <label for="dark_field" style="color: #fff">Telefono</label>
+              <input
+                formControlName="nroTelefono"
+                id="nroTelefono"
+                type="number"
+                id="dark_field"
+                class="nes-input is-dark"
+              />
+            </div>
+            <small
+              class="text-danger"
+              *ngIf="nroTelefono?.touched && nroTelefono?.errors"
+            >
+              Ingrese un número de telefono válido
+            </small>
+          </div>
+
+          <div class="col-sm-12 mt-5">
+            <h6>Te gusto la aplicacion?</h6>
+            <div style="padding: 0.5rem 0">
+              <label>
+                <input
+                  formControlName="gustoApp"
+                  type="radio"
+                  class="nes-radio is-dark"
+                  name="gustoApp"
+                  value="Si"
+                  checked
+                />
+                <span>Si</span>
+              </label>
+
+              <label>
+                <input
+                  formControlName="gustoApp"
+                  type="radio"
+                  class="nes-radio is-dark"
+                  name="gustoApp"
+                  value="No"
+                />
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-sm-12 mt-4">
+            <div style="background-color: #212529; padding: 0.5rem 0">
+              <label>
+                <input
+                  type="checkbox"
+                  formControlName="recomendarApp"
+                  class="nes-checkbox is-dark"
+                  checked
+                />
+                <span>La recomendarias a un amigo?</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 mt-4">
+          <label for="textarea_field">Sugerencias</label>
+          <textarea
+            id="textarea_field"
+            formControlName="sugerencias"
+            class="nes-textarea"
+          ></textarea>
+        </div>
+
+        <hr class="my-4" />
+
+        <button class="w-100 nes-btn is-primary" type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-chat></app-chat>
