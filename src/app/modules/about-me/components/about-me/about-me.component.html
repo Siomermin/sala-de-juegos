@@ -40,14 +40,15 @@
     </div>
   </div>
   <div class="nes-container is-dark d-flex flex-column text-center" id="game-explanation">
-    <h5 class="nes-text is-warning">Juego propio</h5>
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum animi
-        asperiores expedita earum deserunt culpa facere. Placeat debitis
-        consectetur exercitationem, libero aperiam minus porro rem vel error nisi
-        animi voluptatem aliquid iste!
-      </p>
+    <h4 class="nes-text is-warning">Juego propio - Buscaminas</h4>
+    <div class="lists mt-4">
+      <ul class="nes-list is-disc">
+        <li>El juego consiste en despejar todas las casillas de una pantalla que no oculten una <span class="nes-text is-warning">mina</span>.</li>
+        <li>Algunas casillas tienen un número, el cual indica la cantidad de <span class="nes-text is-warning">minas</span> que hay en las casillas circundantes.</li>
+        <li> Así, si una casilla tiene el número 3, significa que de las ocho casillas que hay alrededor (si no es en una esquina o borde) hay 3 con minas y 5 sin minas.</li>
+        <li>Si se descubre una casilla sin número indica que ninguna de las casillas vecinas tiene <span class="nes-text is-warning">mina</span> y éstas se descubren automáticamente.</li>
+        <li>Si se descubre una casilla con una <span class="nes-text is-warning">mina</span> se <span class="nes-text is-error pierde">pierde</span> la partida.</li>
+      </ul>
     </div>
   </div>
 </div>

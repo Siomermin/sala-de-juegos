@@ -21,4 +21,8 @@ export class HomeComponent {
   goToPreguntados() {
     this.router.navigateByUrl('games/preguntados');
   }
+
+  goToBuscaminas() {
+    this.router.navigateByUrl('games/buscaminas');
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
 import { PokemonService } from '../services/pokemon.service';
+
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-ahorcado',

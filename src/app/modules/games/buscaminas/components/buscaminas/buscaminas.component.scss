@@ -1,0 +1,19 @@
+.main-container {
+  height: 100vh;
+}
+
+.center-table {
+  margin: 0 auto; /* Horizontally center the table */
+  display: table; /* Allow vertical centering */
+  margin-top: 50px; /* Adjust the top margin as needed for vertical centering */
+}
+
+table,
+td {
+    border: 1px solid #fff;
+    border-collapse: collapse;
+}
+td {
+    width:32px;
+    height:32px;
+}

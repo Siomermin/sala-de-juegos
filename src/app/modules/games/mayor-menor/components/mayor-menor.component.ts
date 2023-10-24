@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -7,55 +8,90 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
   styleUrls: ['./mayor-menor.component.scss'],
 })
 export class MayorMenorComponent {
-  progressValue: number = 0; // Set an initial value
-  currentNumber: number = 0;
-  nextNumber: number = 0;
-  playerGuess: string = ''; // 'higher' or 'lower'
-  message: string = '';
-  public diceValues: Array<number> = [0, 0, 0, 0, 0, 0];
 
-  constructor() {}
+  score: number = 0;
+  currentScore: number = 0;
+  playing: boolean = true;
+  currentRoll: number = 1; // Initialize it to a default value
+  tries: number = 1;
+  lastRoll: number = 0; // Add a variable to store the last roll
 
-  ngOnInit(): void {
-    this.startGame();
+
+
+
+  constructor() {
+    this.init();
   }
 
-  diceRoll() {
-    for (let i = 0; i < this.diceValues.length; i++) {
-      this.diceValues[i] = Math.floor(Math.random() * 6) + 1;
-    }
+  init() {
+    this.score = 0;
+    this.currentScore = 0;
+    this.playing = true;
   }
 
-  startGame() {
-    this.currentNumber = this.generateRandomNumber();
-    this.nextNumber = this.generateRandomNumber();
-    this.playerGuess = '';
-    this.message = '';
+  restartGame() {
+    this.init();
+    this.tries = 0;
+    this.lastRoll = 0;
   }
 
-  generateRandomNumber(): number {
-    return Math.floor(Math.random() * 100) + 1; // Adjust the range as needed
-  }
+  guessHigher() {
+    if (this.playing) {
+      let nextRoll;
+      do {
+        nextRoll = Math.floor(Math.random() * 6) + 1;
+      } while (nextRoll === this.currentRoll || nextRoll === this.lastRoll);
 
-  makeGuess(guess: string) {
-    const isNextHigher = this.nextNumber > this.currentNumber;
+      if (nextRoll > this.currentRoll) {
+        this.currentScore++;
 
-    if (
-      (isNextHigher && guess === 'higher') ||
-      (!isNextHigher && guess === 'lower')
-    ) {
-      this.message = 'Buena!';
-      this.progressValue += 10;
-    } else {
-      this.message = 'Mal ahi, erraste!';
-      this.progressValue -= 10;
-      if (this.progressValue < 0) {
-        this.progressValue = 0; // Ensure progressValue doesn't go below 0
+        if (this.currentScore === 10) {
+          this.playing = false;
+          this.showEndMessage();
+        }
+      } else {
+        this.currentScore = 0;
       }
-    }
 
-    // Move to the next round
-    this.currentNumber = this.nextNumber;
-    this.nextNumber = this.generateRandomNumber();
+      this.score += this.currentScore;
+      this.lastRoll = this.currentRoll; // Store the current roll as the last one
+      this.currentRoll = nextRoll;
+      this.tries++;
+    }
+  }
+
+  guessLower() {
+    if (this.playing) {
+      let nextRoll;
+      do {
+        nextRoll = Math.floor(Math.random() * 6) + 1;
+      } while (nextRoll === this.currentRoll || nextRoll === this.lastRoll);
+
+      if (nextRoll < this.currentRoll) {
+        this.currentScore++;
+
+        if (this.currentScore === 10) {
+          this.playing = false;
+          this.showEndMessage();
+        }
+      } else {
+        this.currentScore = 0;
+      }
+
+      this.score += this.currentScore;
+      this.lastRoll = this.currentRoll; // Store the current roll as the last one
+      this.currentRoll = nextRoll;
+      this.tries++;
+    }
+  }
+
+
+  newGame() {
+    this.init();
+  }
+
+  showEndMessage() {
+    Swal.fire(`Felicitaciones! Acertaste 10 veces seguidas en ${this.tries} intentos.`);
+    this.restartGame(); // Call the restartGame method when someone wins
   }
 }

@@ -17,9 +17,23 @@
   height: 100%;
 }
 
+ul li {
+  margin-top: 15px;
+}
+
+.pierde {
+  font-size: 17px;
+}
+
 @media (min-width: 1200px) {
   .nes-container {
       justify-content: flex-start;
+  }
+}
+
+@media (max-width: 774px) {
+  ul li {
+    font-size: 14px;
   }
 }
 

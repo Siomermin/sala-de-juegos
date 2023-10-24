@@ -11,6 +11,7 @@
   align-items: center;
 }
 
+
 .options {
   display: flex;
   flex-direction: row; /* Stack options vertically */
@@ -20,9 +21,39 @@
 }
 
 .nes-btn {
-  min-width: 300px;
+  min-width: 200px;
   min-height: 70px;
   margin: 5px; /* Add margin for spacing between buttons */
   font-size: 16px; /* Adjust the font size as needed */
   color: #000!important;
+}
+
+
+/* Media query for small screens */
+@media (max-width: 1200px) {
+  .nes-btn {
+    min-width: 100px;
+    min-height: 40px;
+    margin: 5px; /* Add margin for spacing between buttons */
+    font-size: 11px; /* Adjust the font size as needed */
+    color: #000!important;
+  }
+
+
+}
+
+/* Media query for small screens */
+@media (max-width: 730px) {
+  .nes-btn {
+    min-width: 60px;
+    min-height: 30px;
+    margin: 5px; /* Add margin for spacing between buttons */
+    font-size: 9px; /* Adjust the font size as needed */
+    color: #000!important;
+  }
+
+  .flag {
+    width: 270px;
+    height: 110px;
+  }
 }
