@@ -1,17 +1,26 @@
 <app-navbar></app-navbar>
 <div class="nes-container is-dark text-center main-container">
   <!-- <app-home-btn></app-home-btn> -->
-  <div>
+  <div class="mt-3">
     <h2>Resultados</h2>
   </div>
-  <div class="game-list-container mt-4">
-    <button class="nes-btn is-primary" (click)="getResultados('ahorcado-score')">Ahorcado</button>
-    <button class="nes-btn is-success" (click)="getResultados('buscaminas-score')">Preguntados</button>
-    <button class="nes-btn is-error" (click)="getResultados('mayor-menor-score')">Mayor o Menor</button>
-    <button class="nes-btn is-warning" (click)="getResultados('buscaminas-score')">Buscaminas</button>
+  <div class="game-list-container mt-5">
+    <span class="nes-text is-primary" [ngClass]="{'underline-link': lastClickedGame === 'ahorcado-score'}">
+      <a (click)="getResultados('ahorcado-score')">Ahorcado</a>
+    </span>
+    <span class="nes-text is-success" [ngClass]="{'underline-link': lastClickedGame === 'preguntados-score'}">
+      <a (click)="getResultados('preguntados-score')">Preguntados</a>
+    </span>
+    <span class="nes-text is-error" [ngClass]="{'underline-link': lastClickedGame === 'mayor-menor-score'}">
+      <a (click)="getResultados('mayor-menor-score')">Mayor o Menor</a>
+    </span>
+    <span class="nes-text is-warning" [ngClass]="{'underline-link': lastClickedGame === 'buscaminas-score'}">
+      <a (click)="getResultados('buscaminas-score')">Buscaminas</a>
+    </span>
+
   </div>
 
-  <div>
+  <div class="container mt-5">
     <app-resultados-table [resultadosData]="resultadosData" [resultadoColumns]="resultadoColumns"></app-resultados-table>
   </div>
 

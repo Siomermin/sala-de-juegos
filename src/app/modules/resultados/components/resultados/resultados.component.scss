@@ -9,3 +9,9 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.underline-link::before {
+  content: '\2022'; /* Unicode bullet point character */
+  margin-right: 0.5em;
+  color: white;
+}

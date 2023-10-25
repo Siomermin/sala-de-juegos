@@ -10,10 +10,14 @@ import Swal from 'sweetalert2';
 export class ResultadosComponent {
   resultadosData: any[] = [];
   resultadoColumns: any[] = [];
+  lastClickedGame: string | null = null;
 
   constructor(private firestoreService: FirestoreService) {}
 
   getResultados(game: string) {
+
+    this.lastClickedGame = game;
+
     this.firestoreService.get(game).subscribe((data: any) => {
       this.resultadosData = data;
       console.log(data);
