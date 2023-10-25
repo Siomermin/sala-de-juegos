@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 
 import Swal from 'sweetalert2';
+import { FirestoreService } from 'src/app/core/services/firestore.service';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 
 @Component({
@@ -22,9 +24,10 @@ export class AhorcadoComponent implements OnInit {
   pokemones: string[] = [];
   imageUrl: string = '';
   wordStatus: string = '';
+  loggedUser: any;
 
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private firestoreService: FirestoreService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.getPokemonNames();
@@ -32,6 +35,10 @@ export class AhorcadoComponent implements OnInit {
       this.randomWord();
       this.guessedWord();
     }, 100);
+
+    this.authService.getLoggedUser().subscribe((user) => {
+      this.loggedUser = user;
+    });
   }
 
   getPokemonNames() {
@@ -76,16 +83,15 @@ export class AhorcadoComponent implements OnInit {
     if (this.wordStatus == this.answer) {
       Swal.fire({
         title: 'Ganaste! :)',
-        imageUrl: this.imageUrl,  // Display the Pokémon image
-        imageWidth: 150,  // Adjust image width as needed
-        imageHeight: 150, // Adjust image height as needed
+        imageUrl: this.imageUrl,
+        imageWidth: 150,
+        imageHeight: 150,
         icon: 'success',
         confirmButtonColor: '#3085d6',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.reset();
-        }
       })
+
+      this.saveGameScore('won', this.answer);
+      this.reset();
     }
   }
 
@@ -93,16 +99,16 @@ export class AhorcadoComponent implements OnInit {
     if (this.mistakes == this.maxMistakes) {
       Swal.fire({
         title: 'Perdiste! La respuesta era: ' + this.answer + ' :(',
-        imageUrl: this.imageUrl,  // Display the Pokémon image
-        imageWidth: 150,  // Adjust image width as needed
-        imageHeight: 150, // Adjust image height as needed
+        imageUrl: this.imageUrl,
+        imageWidth: 150,
+        imageHeight: 150,
         icon: 'error',
         confirmButtonColor: '#3085d6',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.reset();
-        }
-      })
+      });
+
+      this.saveGameScore('lost', this.answer);
+
+      this.reset();
     }
   }
 
@@ -119,6 +125,23 @@ export class AhorcadoComponent implements OnInit {
       .split('')
       .map((letter) => (this.guessed.includes(letter) ? letter : ' _ '))
       .join('');
+  }
+
+
+  saveGameScore(gameStatus: string, guess: string) {
+
+    let date = new Date();
+    const timestamp = new Date(date);
+
+    const score = {
+      gameStatus: gameStatus,
+      guess: guess,
+      mistakes:  this.mistakes,
+      date: timestamp,
+      user:  this.loggedUser.email
+    };
+
+    this.firestoreService.save(score, 'ahorcado-score');
   }
 
 
