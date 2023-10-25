@@ -1,0 +1,11 @@
+.main-container {
+  min-height: 100vh;
+}
+
+.game-list-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}

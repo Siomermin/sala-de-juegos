@@ -1,0 +1,12 @@
+  <table  class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th *ngFor="let column of resultadoColumns">{{ column }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of resultadosData">
+        <td *ngFor="let column of resultadoColumns">{{ item[column] }}</td>
+      </tr>
+    </tbody>
+  </table>

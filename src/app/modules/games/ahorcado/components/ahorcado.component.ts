@@ -90,7 +90,7 @@ export class AhorcadoComponent implements OnInit {
         confirmButtonColor: '#3085d6',
       })
 
-      this.saveGameScore('won', this.answer);
+      this.saveGameScore('Ganó', this.answer);
       this.reset();
     }
   }
@@ -106,7 +106,7 @@ export class AhorcadoComponent implements OnInit {
         confirmButtonColor: '#3085d6',
       });
 
-      this.saveGameScore('lost', this.answer);
+      this.saveGameScore('Perdió', this.answer);
 
       this.reset();
     }
@@ -134,11 +134,11 @@ export class AhorcadoComponent implements OnInit {
     const timestamp = new Date(date);
 
     const score = {
-      gameStatus: gameStatus,
-      guess: guess,
-      mistakes:  this.mistakes,
-      date: timestamp,
-      user:  this.loggedUser.email
+      Resultado: gameStatus,
+      Pokemon: guess,
+      Errores:  this.mistakes,
+      Fecha: timestamp,
+      Usuario:  this.loggedUser.email
     };
 
     this.firestoreService.save(score, 'ahorcado-score');

@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="nes-container is-dark text-center main-container">
+  <!-- <app-home-btn></app-home-btn> -->
+  <div>
+    <h2>Resultados</h2>
+  </div>
+  <div class="game-list-container mt-4">
+    <button class="nes-btn is-primary" (click)="getResultados('ahorcado-score')">Ahorcado</button>
+    <button class="nes-btn is-success" (click)="getResultados('buscaminas-score')">Preguntados</button>
+    <button class="nes-btn is-error" (click)="getResultados('mayor-menor-score')">Mayor o Menor</button>
+    <button class="nes-btn is-warning" (click)="getResultados('buscaminas-score')">Buscaminas</button>
+  </div>
+
+  <div>
+    <app-resultados-table [resultadosData]="resultadosData" [resultadoColumns]="resultadoColumns"></app-resultados-table>
+  </div>
+
+</div>
+<app-chat></app-chat>

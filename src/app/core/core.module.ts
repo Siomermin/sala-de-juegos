@@ -5,6 +5,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { HomeBtnComponent } from './components/home-btn/home-btn.component';
 import { EncuestaBalloonComponent } from './components/encuesta-balloon/encuesta-balloon.component';
+import { ResultadosBalloonComponent } from './components/resultados-balloon/resultados-balloon.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { EncuestaBalloonComponent } from './components/encuesta-balloon/encuesta
     ChatComponent,
     HomeBtnComponent,
     EncuestaBalloonComponent,
+    ResultadosBalloonComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { EncuestaBalloonComponent } from './components/encuesta-balloon/encuesta
     NavbarComponent,
     ChatComponent,
     HomeBtnComponent,
-    EncuestaBalloonComponent
+    EncuestaBalloonComponent,
+    ResultadosBalloonComponent
   ]
 })
 export class CoreModule { }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CountryService } from '../services/country.service';
 import Swal from 'sweetalert2';
+import { FirestoreService } from 'src/app/core/services/firestore.service';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-preguntados',
@@ -8,32 +10,36 @@ import Swal from 'sweetalert2';
   styleUrls: ['./preguntados.component.scss'],
 })
 export class PreguntadosComponent {
-  // Initialize variables
   flagUrl: string = '';
   options: string[] = [];
   correctOptionIndex?: number;
   userScore: number = 0;
-  totalQuestions = 25; // Set the total number of questions
-  questionsAnswered = 0; // Initialize the counter
+  totalQuestions = 25; // total number of questions
+  questionsAnswered = 0;
+  loggedUser: any;
 
   // Keep track of options for the current question
   currentQuestionOptions: string[] = [];
 
-  constructor(private countryService: CountryService) {}
+  constructor(
+    private countryService: CountryService,
+    private firestoreService: FirestoreService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    // Start a new quiz when the component is initialized
     this.startNewQuiz();
+
+    this.authService.getLoggedUser().subscribe((user) => {
+      this.loggedUser = user;
+    });
   }
 
-  // Start a new quiz
   startNewQuiz(): void {
-    // Fetch a random country and its flag
     this.countryService.getCountries().subscribe((countries) => {
       const randomIndex = Math.floor(Math.random() * countries.length);
       const randomCountry = countries[randomIndex];
 
-      // Set the flag URL
       this.flagUrl = randomCountry.flag;
 
       // Generate incorrect options (random country names)
@@ -74,29 +80,47 @@ export class PreguntadosComponent {
       this.userScore++;
     }
 
-    // Increment the total questions answered
     this.questionsAnswered++;
 
     if (this.questionsAnswered >= this.totalQuestions) {
-      // The game should end
       this.endGame();
     } else {
-      // Start a new quiz if the game is not over
       this.startNewQuiz();
     }
   }
 
+  saveGameScore(gameStatus: string) {
+    let date = new Date();
+    const timestamp = new Date(date);
+
+    const score = {
+      Resultado: gameStatus,
+      Aciertos: this.userScore,
+      Preguntas: this.totalQuestions,
+      Fecha: timestamp,
+      Usuario: this.loggedUser.email,
+    };
+
+    this.firestoreService.save(score, 'preguntados-score');
+  }
+
+  resetGame(): void {
+    this.startNewQuiz();
+    this.userScore = 0;
+    this.questionsAnswered = 0;
+  }
+
   endGame(): void {
     Swal.fire({
-      title: 'Felicitaciones! Te puntaje fue:' + this.userScore,
+      title:  `Felicitaciones!`,
+      text: `Acertaste ${this.userScore} / ${this.totalQuestions}.`,
       icon: 'success',
       confirmButtonColor: '#3085d6',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.startNewQuiz();
-        this.userScore = 0;
-        this.questionsAnswered = 0;
-      }
-    })
+    });
+
+    this.saveGameScore('Ganó');
+
+    this.resetGame();
+
   }
 }
