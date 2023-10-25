@@ -1,21 +1,26 @@
-i {
-    position: fixed;
-    left: 1.4rem;
-    bottom: 0.5rem;
-    cursor: pointer;
+#showBalloon {
+  position: fixed;
+  left: 1.4rem;
+  bottom: 0.5rem;
+  cursor: pointer;
 }
 
 .nes-balloon {
-  position: fixed;
-  left: 7.4rem;
-  bottom: 1.9rem;
-  //display: none;
+position: fixed;
+left: 7.4rem;
+bottom: 1.9rem;
+opacity: 0;
+transition: opacity 0.3s ease; /* Add a smooth transition effect for opacity */
 }
 
 #balloonContent {
-  display: none; /* Initially hide the balloon */
+display: none; /* Initially hide the balloon content */
 }
 
 #showBalloon:hover + #balloonContent {
-  display: block; /* Show the balloon when hovering over #showBalloon */
+display: block; /* Show the balloon content when hovering over #showBalloon */
+}
+
+#showBalloon:hover + .nes-balloon {
+opacity: 1; /* Set opacity to 1 when hovering, making it fade in smoothly */
 }

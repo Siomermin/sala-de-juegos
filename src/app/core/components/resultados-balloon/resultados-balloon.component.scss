@@ -1,16 +1,18 @@
 i {
   position: fixed;
-  // left: 39.4rem;
-  left: 47.5%;
+  left: 50%; /* Position from the left at 50% */
+  transform: translate(-50%); /* Center the element */
   bottom: 0.5rem;
   cursor: pointer;
 }
 
 .nes-balloon {
-position: fixed;
-left: 52.7%;
-bottom: 1.9rem;
+  position: fixed;
+  left: calc(50% + 160px); /* Adjust the 50px to your desired width */
+  bottom: 1.9rem;
+  transform: translateX(-50%);
 }
+
 
 #balloonContent {
 display: none; /* Initially hide the balloon */
@@ -19,3 +21,4 @@ display: none; /* Initially hide the balloon */
 #showBalloon:hover + #balloonContent {
 display: block; /* Show the balloon when hovering over #showBalloon */
 }
+
