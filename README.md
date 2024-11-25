@@ -1,27 +1,142 @@
-# SalaDeJuegos
+# 🎮 [Sala de Juegos - TP 2023](https://github.com/user-attachments/files/17896292/Consigna.Sala.de.Juegos.2023.pdf)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+El proyecto consiste en desarrollar una aplicación interactiva llamada **Sala de Juegos** para almacenar y gestionar el desempeño de los jugadores.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🎯 Objetivo
+Crear una aplicación que permita:
+- Almacenar estadísticas de jugadores y juegos.
+- Garantizar una experiencia de usuario excelente.
+- Implementar funcionalidades específicas en sprints semanales.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🛠️ Requerimientos principales
 
-## Build
+### 1️⃣ Servidor
+- Implementar la aplicación en **Heroku** o **Firebase**.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2️⃣ Base de datos
+- Usar **Firebase** como sistema de almacenamiento.
 
-## Running unit tests
+### 3️⃣ Login y Registro de usuarios
+- **Autenticación segura**.
+- Gestión de usuarios (login, registro, logout).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 4️⃣ Lógica de los juegos
+#### Juegos obligatorios:
+- **Ahorcado**
+- **Mayor o Menor**
+- **Preguntados**
+#### Juego propio:
+- Diseñar un juego adicional.
+- **No permitido**:
+  - TaTeTi
+  - Memotest
+  - Piedra, Papel o Tijera
 
-## Running end-to-end tests
+### 5️⃣ Experiencia de usuario (UX)
+- Pantallas intuitivas y fáciles de navegar.
+- Información clara y detallada en acciones y mensajes.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 6️⃣ Diseño y Estilos
+- Utilizar:
+  - **PrimeNG**
+  - **Angular Material**
+  - **Bootstrap**
+- Incluir:
+  - Animaciones (CSS o TypeScript).
+  - Un **favicon**.
 
-## Further help
+### 7️⃣ Listados
+- Mostrar resultados de juegos:
+  - Datos del jugador.
+  - Fecha y puntajes.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 8️⃣ Presentación personal ("Quién Soy")
+Debe incluir:
+- Datos personales del alumno.
+- Imagen del alumno.
+- Explicación detallada del juego propio.
+
+---
+
+## 🗓️ Cronograma de sprints
+
+### Sprint 1 (Clase 02)
+- Estructura básica del proyecto.
+- Publicación en Heroku/Firebase.
+- Componentes iniciales:
+  - Login.
+  - Home.
+  - Quién Soy.
+- Favicon configurado.
+
+### Sprint 2 (Clase 03)
+- **Home**:
+  - Accesos a juegos y listados.
+  - Mostrar usuario logueado y opción de logout.
+- **Login**:
+  - Validar usuario contra Firebase.
+  - Registrar logs (usuario, fecha).
+  - Botones de acceso rápido para email/contraseña.
+- **Registro**:
+  - Crear usuario y loguear automáticamente.
+  - Validar duplicados (sin usar `alert`).
+
+### Sprint 3 (Clase 04)
+- **Chat**:
+  - Solo accesible para usuarios logueados.
+  - Mostrar usuario y hora del mensaje.
+- **Modularización**:
+  - Implementar módulos y `loadChildren`.
+- **Juegos iniciales**:
+  - Ahorcado: Uso de botones para letras (sin teclado).
+  - Mayor o Menor: Adivinar cartas.
+
+### Sprint 4 (Clase 05)
+- **Preguntados**:
+  - Obtener imágenes desde una API con un `Service`.
+  - Opciones interactivas (sin teclado).
+- **Juego propio**:
+  - Explicación en “Quién Soy”.
+
+### Sprint 5 (Clase 06)
+- **Listado de resultados**:
+  - Registrar datos al finalizar los juegos (usuario, fecha, puntaje, etc.).
+- **Encuesta**:
+  - Solicitar:
+    - Nombre y apellido.
+    - Edad (validar entre 18 y 99 años).
+    - Teléfono (máximo 10 números).
+    - 3 preguntas mínimas con distintos controles:
+      - Textbox, checkbox, radiobutton, etc.
+  - Validaciones obligatorias.
+  - Guardar en Firebase.
+
+---
+
+## 📋 Estructura básica de la aplicación
+
+### Componentes principales:
+- **Login**
+- **Registro**
+- **Home**
+- **Quién Soy**
+- Módulos de juegos:
+  - Ahorcado
+  - Mayor o Menor
+  - Preguntados
+  - Juego propio
+- **Listados y Encuesta**
+- **Sala de chat** (usuarios logueados).
+
+---
+
+## 💡 Notas adicionales
+- La aplicación está dirigida a evaluar capacidades cognitivas y motrices de los usuarios.
+- **Solo accesible para usuarios registrados**.
+- **Prohibido usar `alert` para notificaciones**.
+
+---
